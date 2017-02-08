@@ -8,7 +8,7 @@ var Queue = function() {
 
   someInstance.enqueue = function(value) {
     var keys = Object.keys(storage);
-    var nextKey  = keys.length ? keys[keys.length - 1] + 1 : 0;
+    var nextKey = keys.length ? keys[keys.length - 1] + 1 : 0;
     storage[nextKey] = value;
   };
 
