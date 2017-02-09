@@ -10,7 +10,6 @@ var Queue = function() {
 
 var queueMethods = {};
 
-
 queueMethods.enqueue = function(value) {
   var keys = Object.keys(this);
   var nextKey = this.lastKey ? this.lastKey + 1 : 1;

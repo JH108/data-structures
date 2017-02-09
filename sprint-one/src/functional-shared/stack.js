@@ -18,6 +18,7 @@ stackMethods.push = function(value) {
   this.lastKey = nextKey;
 };
 
+
 stackMethods.pop = function() {
   if (this.sizeA) {
     var keys = Object.keys(this);
