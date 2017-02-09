@@ -7,18 +7,18 @@ var Queue = function() {
 
 var queueMethods = {};
 queueMethods.enqueue = function(value) {
-    var keys = Object.keys(this);
-    var nextKey = keys.length ? keys[keys.length - 1] + 1 : 0;
-    this[nextKey] = value;
+  var keys = Object.keys(this);
+  var nextKey = keys.length ? keys[keys.length - 1] + 1 : 0;
+  this[nextKey] = value;
 };
 
 queueMethods.dequeue = function() {
-    var keys = Object.keys(this);
-    var deletedValue = this[keys[0]];
-    delete this[keys[0]];
-    return deletedValue;
+  var keys = Object.keys(this);
+  var deletedValue = this[keys[0]];
+  delete this[keys[0]];
+  return deletedValue;
 };
 
 queueMethods.size = function() {
-    return Object.keys(this).length;
+  return Object.keys(this).length;
 };
