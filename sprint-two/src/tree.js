@@ -18,7 +18,7 @@ treeMethods.addChild = function(value) {
 treeMethods.contains = function(target) {
   var targetFound = false;
 
-  function recurseOverChildren(node) {
+  var recurseOverChildren = function(node) {
     for(var i = 0; i < node.length; i++) {
       if(node[i].value === target) {
         targetFound = true;
@@ -27,7 +27,7 @@ treeMethods.contains = function(target) {
         recurseOverChildren(node[i].children);
       }
     }
-  }
+  };
   recurseOverChildren(this.children);
   return targetFound;
 };
