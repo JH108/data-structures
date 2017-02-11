@@ -9,16 +9,9 @@ var Tree = function(value) {
   return newTree;
 };
 
-// tree.children[0].addChild(6);
-// expect(tree.children[0].children[0].value).to.equal(6);
-
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  // if (this.children === undefined) {
-  //   this.children = {};
-  // }
-  //this.children.push({value: value, children : [], addChild: treeMethods.addChild});
   this.children.push(Tree(value));
 };
 
