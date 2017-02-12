@@ -1,9 +1,8 @@
 var Queue = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
   var newQueue = {};
-  newQueue.sizeA = 0;
-  newQueue.lastKey = 0;
+  newQueue._storage = {};
+  newQueue._start = 0;
+  newQueue._end = 0;
   _.extend(newQueue, queueMethods);
   return newQueue;
 };
@@ -11,23 +10,18 @@ var Queue = function() {
 var queueMethods = {};
 
 queueMethods.enqueue = function(value) {
-  var keys = Object.keys(this);
-  var nextKey = this.lastKey ? this.lastKey + 1 : 1;
-  this[nextKey] = value;
-  this.sizeA++;
-  this.lastKey = nextKey;
+  this._storage[this._end++] = value;
 };
 
 queueMethods.dequeue = function() {
-  if (this.sizeA) {
-    var keys = Object.keys(this);
-    var deletedValue = this[keys[0]];
-    delete this[keys[0]];
-    this.sizeA--;
-    return deletedValue;
+  var deletedValue = this._storage[this._start];
+  if(this.size()) {
+    delete this._storage[this._start];
+    this._start++;
   }
+  return deletedValue;
 };
 
 queueMethods.size = function() {
-  return this.sizeA;
+  return this._end - this._start;
 };
